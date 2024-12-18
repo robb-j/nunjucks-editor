@@ -1,0 +1,11 @@
+{
+	"$schema": "https://json.schemastore.org/web-manifest.json",
+	"name": "Nunjucks Editor",
+	"short_name": "njk",
+	"id": "https://nunjucks.r0b.io/",
+	"start_url": ".",
+	"scope": "/",
+	"display": "standalone",
+	"theme_color": "#3e8137",
+	"icons": [{ "src": "icon.png", "type": "image/png", "sizes": "192x192" }]
+}

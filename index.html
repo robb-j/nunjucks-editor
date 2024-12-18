@@ -3,19 +3,22 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Nunjucks Editor</title>
+		<title>Nunjucks Playground</title>
 		<meta
 			name="description"
 			content="Write, edit and preview Nunjucks online in your browser right now"
 		/>
 		<meta property="og:url" content="https://nunjucks.r0b.io" />
 		<meta property="og:type" content="website" />
-		<meta property="og:title" content="Nunjucks Editor" />
+		<meta property="og:title" content="Nunjucks Playground" />
+		<meta name="theme-color" content="#3e8137" />
 		<link rel="stylesheet" href="https://fonts.openlab.dev/rubik/rubik.css" />
 		<link rel="stylesheet" href="https://alembic.openlab.dev/labcoat.css" />
+		<link rel="manifest" href="/app.webmanifest" />
 		<style>
 			:root {
-				--fillable: #7b829d;
+				--fillable: #71ba6a;
+				--focus: #3e8137;
 				--font-main: "Rubik var", Rubik, system-ui, sans-serif;
 			}
 			pre {
@@ -30,6 +33,12 @@
 			}
 			header {
 				font-weight: bold;
+				background: #3e8137;
+				color: white;
+				padding: var(--s-1);
+			}
+			main {
+				padding: var(--s-1);
 			}
 			footer {
 				text-align: center;
@@ -47,6 +56,9 @@
 				font-size: 14px;
 				color: currentColor;
 			}
+			textarea:focus {
+				outline-style: dashed;
+			}
 			#output {
 				padding: var(--s-3);
 			}
@@ -58,8 +70,8 @@
 		</style>
 	</head>
 	<body>
-		<cover-layout centered="main" space="s-1">
-			<header>Nunjucks editor</header>
+		<cover-layout centered="main" space="s0" nopad>
+			<header>Nunjucks Playground</header>
 
 			<main class="flow">
 				<switcher-layout>
@@ -79,10 +91,11 @@
 			</main>
 
 			<footer>
-				Made by
-				<a href="https://www.r0b.io">Rob</a>
-				/
 				<a href="https://github.com/robb-j/nunjucks-editor">View source</a>
+				/
+				<a href="https://mozilla.github.io/nunjucks/">Nunjucks</a>
+				/ Made by
+				<a href="https://www.r0b.io">Rob</a>
 			</footer>
 		</cover-layout>
 		<script
