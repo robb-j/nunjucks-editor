@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Nunjucks Editor</title>
+		<meta
+			name="description"
+			content="Write, edit and preview Nunjucks online in your browser right now"
+		/>
+		<meta property="og:url" content="https://nunjucks.r0b.io" />
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content="Nunjucks Editor" />
+		<link rel="stylesheet" href="https://fonts.openlab.dev/rubik/rubik.css" />
+		<link rel="stylesheet" href="https://alembic.openlab.dev/labcoat.css" />
+		<style>
+			:root {
+				--fillable: #7b829d;
+				--font-main: "Rubik var", Rubik, system-ui, sans-serif;
+			}
+			pre {
+				min-height: 300px;
+			}
+			.field {
+				--measure: unset;
+			}
+			.field-label {
+				font-weight: 600;
+				font-style: italic;
+			}
+			header {
+				font-weight: bold;
+			}
+			footer {
+				text-align: center;
+				font-style: italic;
+				opacity: 0.8;
+				padding: 1em;
+			}
+			footer a {
+				font-weight: bold;
+				color: currentcolor;
+			}
+			#output,
+			textarea {
+				font-family: var(--font-mono);
+				font-size: 14px;
+			}
+			#output {
+				padding: var(--s-3);
+			}
+			#output[data-kind="error"] {
+				color: #bd1212;
+				border-color: red;
+				background: #fadede;
+			}
+		</style>
+	</head>
+	<body>
+		<cover-layout centered="main" space="s-1">
+			<header>Nunjucks editor</header>
+
+			<main class="flow">
+				<switcher-layout>
+					<label class="field" for="template">
+						<span class="field-label">Template</span>
+						<textarea id="template" rows="18"></textarea>
+					</label>
+					<label class="field" for="data">
+						<span class="field-label">Data</span>
+						<textarea id="data" rows="18"></textarea>
+					</label>
+				</switcher-layout>
+				<div>
+					<span class="field-label">Output</span>
+					<pre id="output"></pre>
+				</div>
+			</main>
+
+			<footer>Made by <a href="https://www.r0b.io">Rob</a></footer>
+		</cover-layout>
+		<script
+			type="module"
+			src="https://alembic.openlab.dev/everything.js"
+		></script>
+		<script src="https://mozilla.github.io/nunjucks/files/nunjucks.min.js"></script>
+		<script type="module">
+			data.value = JSON.stringify({ name: "Geoff", age: 42 }, null, 2);
+			data.oninput = () => render();
+
+			template.value = `Hello {{ name }}, you are {{ age }} years old!`;
+			template.oninput = () => render();
+
+			function render() {
+				output.dataset.kind = "success";
+				try {
+					output.textContent = nunjucks.renderString(
+						template.value,
+						JSON.parse(data.value)
+					);
+				} catch (error) {
+					output.dataset.kind = "error";
+					output.textContent = error.stack || error.toString();
+				}
+			}
+			render();
+		</script>
+	</body>
+</html>
