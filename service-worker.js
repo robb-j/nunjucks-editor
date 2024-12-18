@@ -8,9 +8,9 @@ const assets = [
 	"https://mozilla.github.io/nunjucks/files/nunjucks.min.js",
 ];
 
-self.addEventListener("install", (event) => {
-	event.waitUntil(install());
-});
+self.addEventListener("install", (e) => e.waitUntil(install()));
+self.addEventListener("activate", (e) => e.waitUntil(activate()));
+self.addEventListener("fetch", (e) => e.respondWith(performFetch(e.request)));
 
 // Cache assets on install (no-cors allows external assets to be cached)
 async function install() {
@@ -21,14 +21,21 @@ async function install() {
 	);
 }
 
-self.addEventListener("activate", (event) => {
-	event.waitUntil(activate());
-});
-
-// Uncache old assets on activate
+// Uncache old assets when opened
 async function activate() {
 	console.log("@activate");
 	for (const key of await caches.keys()) {
 		if (key !== version) await caches.delete(key);
 	}
+}
+
+/** @param {Request} request */
+async function performFetch(request) {
+	console.log("@fetch", request.url);
+
+	let response = await caches.match(request);
+	if (res) response;
+
+	// TODO: could also cache these requests?
+	return fetch(request);
 }
