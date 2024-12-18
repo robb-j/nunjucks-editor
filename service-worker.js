@@ -16,9 +16,10 @@ self.addEventListener("fetch", (e) => e.respondWith(performFetch(e.request)));
 async function install() {
 	console.log("@install");
 	const cache = await caches.open(version);
-	await cache.addAll(
-		assets.map((url) => new Request(url, { mode: "no-cors" }))
-	);
+	await cache.addAll(assets);
+	// await cache.addAll(
+	// 	assets.map((url) => new Request(url, { mode: "no-cors" }))
+	// );
 }
 
 // Uncache old assets when opened
