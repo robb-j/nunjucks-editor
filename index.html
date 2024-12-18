@@ -104,7 +104,7 @@
 		></script>
 		<script src="https://mozilla.github.io/nunjucks/files/nunjucks.min.js"></script>
 		<script type="module">
-			data.value = JSON.stringify({ name: "Geoff", age: 42 }, null, 2);
+			data.value = JSON.stringify({ name: "Geoff Testington", age: 42 }, null, 2);
 			data.oninput = () => render();
 
 			template.value = `Hello {{ name }}, you are {{ age }} years old!`;
