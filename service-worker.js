@@ -12,11 +12,13 @@ self.addEventListener("install", (event) => {
 	event.waitUntil(install());
 });
 
-// Cache assets on install
+// Cache assets on install (no-cors allows external assets to be cached)
 async function install() {
 	console.log("@install");
 	const cache = await caches.open(version);
-	await cache.addAll(assets);
+	await cache.addAll(
+		assets.map((url) => new Request(url, { mode: "no-cors" }))
+	);
 }
 
 self.addEventListener("activate", (event) => {
