@@ -17,9 +17,6 @@ async function install() {
 	console.log("@install");
 	const cache = await caches.open(version);
 	await cache.addAll(assets);
-	// await cache.addAll(
-	// 	assets.map((url) => new Request(url, { mode: "no-cors" }))
-	// );
 }
 
 // Uncache old assets when opened
@@ -35,7 +32,7 @@ async function performFetch(request) {
 	console.log("@fetch", request.url);
 
 	let response = await caches.match(request);
-	if (res) response;
+	if (response) response;
 
 	// TODO: could also cache these requests?
 	return fetch(request);
