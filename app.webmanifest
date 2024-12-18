@@ -1,8 +1,7 @@
 {
 	"$schema": "https://json.schemastore.org/web-manifest.json",
 	"name": "Nunjucks Editor",
-	"short_name": "njk",
-	"id": "https://nunjucks.r0b.io/",
+	"short_name": "NJK Playground",
 	"start_url": ".",
 	"scope": "/",
 	"display": "standalone",
