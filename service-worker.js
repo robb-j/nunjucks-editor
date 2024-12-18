@@ -1,5 +1,8 @@
 const version = "njk-playground-001";
 const assets = [
+	"/",
+	"/index.html",
+	"/icon.png",
 	"https://fonts.openlab.dev/rubik/rubik.css",
 	"https://fonts.openlab.dev/rubik/Rubik-VariableFont_wght.woff2?v=2.200",
 	"https://fonts.openlab.dev/rubik/Rubik-Italic-VariableFont_wght.woff2?v=2.200",
