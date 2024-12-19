@@ -78,16 +78,18 @@
 			<header>Nunjucks Playground</header>
 
 			<main class="flow">
-				<switcher-layout>
-					<label class="field" for="template">
-						<span class="field-label">Template</span>
-						<textarea id="template" rows="18"></textarea>
-					</label>
-					<label class="field" for="data">
-						<span class="field-label">Data</span>
-						<textarea id="data" rows="18"></textarea>
-					</label>
-				</switcher-layout>
+				<center-layout max="2000px">
+					<switcher-layout>
+						<label class="field" for="template">
+							<span class="field-label">Template</span>
+							<textarea id="template" rows="18"></textarea>
+						</label>
+						<label class="field" for="data">
+							<span class="field-label">Data</span>
+							<textarea id="data" rows="18"></textarea>
+						</label>
+					</switcher-layout>
+				</center-layout>
 				<div>
 					<span class="field-label">Output</span>
 					<pre id="output"></pre>
