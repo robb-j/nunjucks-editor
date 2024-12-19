@@ -14,7 +14,8 @@
 		<meta name="theme-color" content="#3e8137" />
 		<link rel="stylesheet" href="https://fonts.openlab.dev/rubik/rubik.css" />
 		<link rel="stylesheet" href="https://alembic.openlab.dev/labcoat.css" />
-		<link rel="manifest" href="/app.webmanifest" />
+		<link rel="manifest" href="app.webmanifest" />
+		<link rel="icon" href="favicon.png" />
 		<style>
 			:root {
 				--fillable: #71ba6a;
@@ -112,7 +113,11 @@
 		></script>
 		<script src="https://mozilla.github.io/nunjucks/files/nunjucks.min.js"></script>
 		<script type="module">
-			data.value = JSON.stringify({ name: "Geoff Testington", age: 42 }, null, 2);
+			data.value = JSON.stringify(
+				{ name: "Geoff Testington", age: 42 },
+				null,
+				2
+			);
 			data.oninput = () => render();
 
 			template.value = `Hello {{ name }}, you are {{ age }} years old!`;
