@@ -9,5 +9,5 @@ This is a very quick playground to try [Nunjucks](https://mozilla.github.io/nunj
 This is static HTML file but it imports:
 
 - [Nunjucks](https://mozilla.github.io/nunjucks/)
-- [Alembic Labcoat](https://alembic.openlab.dev/)
+- [Alembic Labcoat](https://alembic.openlab.dev/labcoat/)
 - [Rubik font](https://fonts.openlab.dev)
